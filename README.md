@@ -61,3 +61,16 @@ client/src/
 | ยื่นใบลา / ลงเวลา | เฉพาะบัญชีที่ผูกกับพนักงาน | ✔ |
 | อนุมัติการลา | ✔ | ✖ |
 | ดูการลา / ลงเวลา | ทุกคน | ของตัวเอง |
+
+## Deploy ขึ้น VPS (Ubuntu)
+
+รันบน VPS ด้วย root — ใช้ได้ทั้งติดตั้งครั้งแรกและอัปเดตเวอร์ชันใหม่ (ไม่แตะ `.env` และฐานข้อมูลเดิม):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ohmiler/ems-full-stack/main/deploy/install.sh | bash
+```
+
+- โค้ดอยู่ที่ `/opt/ems` รันด้วยผู้ใช้ `ems` ผ่าน systemd (`systemctl status ems`, `journalctl -u ems`)
+- แอปฟังที่ `127.0.0.1:3001` เท่านั้น ต้องตั้ง reverse proxy (เช่น OpenLiteSpeed, Nginx, Caddy) พร้อม HTTPS ส่งต่อจากโดเมนมาที่พอร์ตนี้
+- ชื่อผู้ใช้/รหัสผ่าน admin ถูกสุ่มตอนติดตั้งครั้งแรก ดูได้ที่ `/opt/ems/.env`
+- ฐานข้อมูลอยู่ที่ `/opt/ems/server/data/ems.db` — สำรองไฟล์นี้เป็นระยะ

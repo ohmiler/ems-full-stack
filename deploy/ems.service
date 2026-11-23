@@ -9,6 +9,8 @@ Group=ems
 WorkingDirectory=/opt/ems
 Environment=NODE_ENV=production
 Environment=HOST=127.0.0.1
+# เวลาลงเวลาเข้า-ออกงานและ "วันนี้" ใช้เวลาไทย
+Environment=TZ=Asia/Bangkok
 ExecStart=/usr/bin/node server/src/index.js
 Restart=on-failure
 RestartSec=3

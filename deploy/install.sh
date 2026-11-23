@@ -25,6 +25,12 @@ if [ "$node_major" -lt 22 ]; then
   apt-get install -y nodejs
 fi
 command -v git >/dev/null || apt-get install -y git
+# เครื่องมือ compile — ใช้เมื่อ better-sqlite3 ไม่มี prebuilt binary สำหรับ Node เวอร์ชันนี้
+if ! command -v make >/dev/null || ! command -v g++ >/dev/null; then
+  echo ">> ติดตั้ง build tools"
+  apt-get update -qq
+  DEBIAN_FRONTEND=noninteractive apt-get install -y -qq build-essential python3
+fi
 
 # --- ผู้ใช้ระบบสำหรับรันแอป (ไม่มี shell, ไม่มีสิทธิ์ root) ---
 if ! id "$APP_USER" >/dev/null 2>&1; then
