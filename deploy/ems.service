@@ -1,0 +1,21 @@
+[Unit]
+Description=EMS - Employee Management System (Node.js + SQLite)
+After=network.target
+
+[Service]
+Type=simple
+User=ems
+Group=ems
+WorkingDirectory=/opt/ems
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+ExecStart=/usr/bin/node server/src/index.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

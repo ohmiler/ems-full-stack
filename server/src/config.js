@@ -19,6 +19,8 @@ if (!process.env.JWT_SECRET) {
 export const config = {
   // API_PORT มาก่อน PORT เพราะเครื่องมือ dev บางตัวตั้ง PORT ให้เป็นพอร์ตของหน้าเว็บ
   port: Number(process.env.API_PORT || process.env.PORT) || 3001,
+  // ตั้ง HOST=127.0.0.1 บน production เพื่อให้เข้าถึงได้ผ่าน reverse proxy เท่านั้น
+  host: process.env.HOST || undefined,
   jwtSecret: process.env.JWT_SECRET,
   dbPath: process.env.DB_PATH || path.join(serverRoot, 'data', 'ems.db'),
   isProd: process.env.NODE_ENV === 'production',

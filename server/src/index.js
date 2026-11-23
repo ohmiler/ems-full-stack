@@ -7,6 +7,6 @@ if (!hasUsers) {
   console.warn('ยังไม่มีบัญชีผู้ใช้ในระบบ — รัน `npm run seed` เพื่อสร้างบัญชี admin');
 }
 
-app.listen(config.port, () => {
+app.listen(config.port, config.host, () => {
   console.log(`EMS API พร้อมใช้งานที่ http://localhost:${config.port}`);
 });

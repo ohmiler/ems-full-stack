@@ -19,6 +19,8 @@ z.config(z.locales.th());
 
 const app = express();
 app.disable('x-powered-by');
+// production อยู่หลัง reverse proxy บนเครื่องเดียวกัน — ให้ req.ip เป็น IP จริงของผู้ใช้ (ใช้กับ rate limit)
+if (config.isProd) app.set('trust proxy', 'loopback');
 app.use(express.json({ limit: '100kb' }));
 app.use(cookieParser());
 
