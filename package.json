@@ -1,0 +1,21 @@
+{
+  "name": "ems-full-stack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ระบบจัดการพนักงาน (Employee Management System) — Node.js + SQLite + React",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup-env.js",
+    "seed": "npm run seed -w server",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "test": "npm test -w server",
+    "build": "npm run build -w client",
+    "start": "npm start -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}

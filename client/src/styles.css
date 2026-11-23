@@ -1,0 +1,664 @@
+:root {
+  --bg: #f4f5f9;
+  --surface: #ffffff;
+  --border: #e2e5ee;
+  --text: #1c2233;
+  --muted: #6a7187;
+  --primary: #3b5bdb;
+  --primary-hover: #2f4ac0;
+  --primary-soft: #e8ecfd;
+  --danger: #d6336c;
+  --danger-soft: #fde8ef;
+  --success: #2b8a3e;
+  --success-soft: #e6f6ea;
+  --warning: #b3690a;
+  --warning-soft: #fff3dc;
+  --sidebar: #1a2140;
+  --sidebar-text: #c9cfe6;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(20, 28, 60, 0.06), 0 4px 14px rgba(20, 28, 60, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Sarabun', 'Noto Sans Thai', 'Leelawadee UI', 'Segoe UI', Tahoma, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* ---------- โครงหน้า ---------- */
+.shell {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  min-height: 100%;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px 14px;
+  background: var(--sidebar);
+  color: var(--sidebar-text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.brand-mark.large {
+  padding: 8px 14px;
+  font-size: 1.1rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar nav a {
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar-user {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.user-name {
+  color: #fff;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.user-role {
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+.content {
+  min-width: 0;
+  padding: 28px 32px 48px;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-header p {
+  margin: 2px 0 0;
+}
+
+.center-screen {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 16px;
+}
+
+/* ---------- การ์ด / สถิติ ---------- */
+.card {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  display: block;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+a.stat:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.stat-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 28px;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-label {
+  overflow: hidden;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-track {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--primary-soft);
+}
+
+.bar-fill {
+  height: 100%;
+  min-width: 4px;
+  border-radius: 6px;
+  background: var(--primary);
+}
+
+.bar-value {
+  font-weight: 600;
+  text-align: right;
+}
+
+.simple-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.simple-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.simple-list li:last-child {
+  border-bottom: 0;
+}
+
+/* ---------- ตาราง ---------- */
+.table-wrap {
+  padding: 0;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background: #f8f9fc;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #fafbfe;
+}
+
+.num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+td.actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+td.actions .btn + .btn {
+  margin-left: 6px;
+}
+
+td.empty {
+  padding: 32px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+/* ---------- ปุ่ม / ฟอร์ม ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: #c5cadb;
+  background: #f6f7fb;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.btn.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover:not(:disabled) {
+  border-color: var(--primary-hover);
+  background: var(--primary-hover);
+}
+
+.btn.danger {
+  border-color: #f3c3d3;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.btn.danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn.small {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.btn.block {
+  width: 100%;
+}
+
+.btn.ghost {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--sidebar-text);
+}
+
+.btn.ghost:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.icon-btn {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px 11px;
+  border: 1px solid #cfd4e2;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.btn:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.field {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.field > span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.push-left {
+  margin-right: auto;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.toolbar input[type='search'] {
+  flex: 1 1 240px;
+  max-width: 360px;
+}
+
+.toolbar select,
+.toolbar input[type='date'] {
+  width: auto;
+}
+
+.inline-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- ป้ายสถานะ / แจ้งเตือน ---------- */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge.active,
+.badge.approved {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badge.pending {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.badge.resigned,
+.badge.rejected {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.alert {
+  margin: 12px 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.alert.error {
+  background: var(--danger-soft);
+  color: #a61e4d;
+}
+
+.alert.success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: start center;
+  padding: 6vh 16px 16px;
+  overflow-y: auto;
+  background: rgba(20, 26, 50, 0.45);
+}
+
+.modal {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 20px 60px rgba(10, 16, 40, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 18px 20px 20px;
+}
+
+/* ---------- Login ---------- */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.login-card h1 {
+  margin-top: 14px;
+}
+
+.login-card .field {
+  text-align: left;
+}
+
+/* ---------- ลงเวลา ---------- */
+.today-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.today-times {
+  display: flex;
+  gap: 32px;
+}
+
+.today-times div {
+  display: flex;
+  flex-direction: column;
+}
+
+.today-times strong {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+/* ---------- จอเล็ก ---------- */
+@media (max-width: 800px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 12px;
+  }
+
+  .brand {
+    padding-bottom: 10px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-user {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .user-role {
+    margin: 0 auto 0 0;
+  }
+
+  .content {
+    padding: 18px 14px 36px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
